@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>mysql主从数据库上实现读写分离</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="白俊杰">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="斯人独憔悴得技术博客 ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">斯人独憔悴得技术博客 </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li class="active">
+                    <a href="/category/ji-zhu.html">
+						<i class="icon-folder-open icon-large"></i>技术
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to mysql主从数据库上实现读写分离">
+                                        mysql主从数据库上实现读写分离
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2019-08-13T15:20:00+02:00">
+        <i class="icon-calendar"></i>周二 13 八月 2019
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info -->                </div>
+                <h3>首先准备俩台服务器，一台作为主机（master），一台作为从机（slave），都安装好mysql5.7。</h3>
+<ul>
+<li>进入master服务器</li>
+<li>修改mysql配置文件 vim /etc/my.cnf,加入如下配置</li>
+</ul>
+<div class="highlight"><pre><span></span>            <span class="nv">server</span><span class="o">-</span><span class="nv">id</span><span class="o">=</span><span class="mi">1</span>
+            <span class="nv">innodb_flush_log_at_trx_commit</span><span class="o">=</span><span class="mi">2</span>
+            <span class="nv">sync_binlog</span><span class="o">=</span><span class="mi">1</span>
+            <span class="nv">log</span><span class="o">-</span><span class="nv">bin</span><span class="o">=</span><span class="nv">mysql</span><span class="o">-</span><span class="nv">bin</span><span class="o">-</span><span class="mi">1</span>
+
+         配置说明：
+         #设置主服务得<span class="nv">id</span>（<span class="nv">id</span>可以自己随便设置但是要保证和<span class="nv">slave</span>得<span class="nv">id</span>不一样）
+            <span class="nv">server</span><span class="o">-</span><span class="nv">id</span> <span class="o">=</span><span class="mi">1</span>
+         #设为<span class="mi">1</span>当然是最安全的，但性能也是最差的（相对其他两个参数而言，但不是不能接受）。如果对数据一致性和完          整性要求不高，完全可以设为<span class="mi">2</span>，如果只最求性能，例如高并发写的日志服务器，设为<span class="mi">0</span>来获得更高性能
+          <span class="nv">innodb_flush_log_at_trx_commit</span><span class="o">=</span><span class="mi">2</span>
+         #开启<span class="nv">binlog</span> 志同步功能
+           <span class="nv">sync_binlog</span><span class="o">=</span><span class="mi">1</span> 
+
+         #<span class="nv">binlog</span> 日志文件名
+          <span class="nv">log</span><span class="o">-</span><span class="nv">bin</span><span class="o">=</span><span class="nv">mysql</span><span class="o">-</span><span class="nv">bin</span><span class="o">-</span><span class="mi">200</span> 
+
+         # 这个表示只同步某个库 <span class="ss">(</span>如果没有此项，表示同步所有的库<span class="ss">)</span>
+           <span class="nv">binlog</span><span class="o">-</span><span class="k">do</span><span class="o">-</span><span class="nv">db</span><span class="o">=</span><span class="nv">xxxx</span> 
+
+           保存后，重启<span class="nv">mysql</span>
+            <span class="nv">systemctl</span> <span class="nv">restart</span> <span class="nv">mysqld</span>
+</pre></div>
+
+
+<p>​         </p>
+<ul>
+<li>
+<p>进入mysql -uroot -p </p>
+</li>
+<li>
+<p>输入授权命令</p>
+<p>```
+GRANT REPLICATION SLAVE ON <em>.</em> to 'repl'@'%' identified by 'Admin123!'; </p>
+<p>意思是所有得slave都可以通过账号repl和密码Admin123！来同步master得数据</p>
+<p>```</p>
+</li>
+<li>
+<p>查看master得状态：</p>
+<p>```
+show master status；
+获取到file列和position得值  然后记录下来，对slave进行配置</p>
+<p>```</p>
+</li>
+</ul>
+<p>### 从机（slave）操作：</p>
+<ul>
+<li>和主机master一样先配置mysl    <strong>vim /etc/my.cnf</strong> 下面得配置（其中server-id不能和主机得一样）</li>
+</ul>
+<p><code>server-id=201 
+  innodb_flush_log_at_trx_commit=2 
+  sync_binlog=1 
+  log-bin=mysql-bin-201</code></p>
+<ul>
+<li>
+<p>保存后重启服务 systemctl restart mysqld</p>
+</li>
+<li>
+<p>进入mysql命令行   mysql -uroot -p</p>
+</li>
+<li>
+<p>输入命令：</p>
+</li>
+</ul>
+<p>```
+  change master to master_host='39.106.228.179',master_user='repl',master_password='Admin123!', master_log_file='mysql-bin.000002' ,master_log_pos=154</p>
+<div class="highlight"><pre><span></span><span class="n">master_host</span><span class="err">：主机</span><span class="n">ip</span>
+
+<span class="n">master_user</span><span class="p">:</span> <span class="err">主机授权得用户</span>
+
+<span class="n">master_password</span><span class="err">：</span> <span class="err">主机授权时候填写得密码</span>
+
+<span class="n">master_log_file</span><span class="p">:</span> <span class="err">主机</span><span class="k">show</span> <span class="n">master</span> <span class="n">status</span><span class="err">；中得</span><span class="n">file</span>
+
+<span class="n">master_log_pos</span><span class="p">:</span> <span class="err">主机</span><span class="k">show</span> <span class="n">master</span> <span class="n">status</span><span class="err">；中得</span><span class="k">Position</span><span class="p">.</span>
+</pre></div>
+
+
+<p>```</p>
+<ul>
+<li>输入命令启动slave</li>
+</ul>
+<p><code>start slave；</code></p>
+<p>查看slave得状态：</p>
+<p><code>bsh
+  show slave status G;</code></p>
+<ul>
+<li>最后咱们测试一下对master进行写入，看看slave是否可以同步数据了</li>
+</ul>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/ji-zhu.html">
+    <i class="icon-folder-open icon-large"></i>技术
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

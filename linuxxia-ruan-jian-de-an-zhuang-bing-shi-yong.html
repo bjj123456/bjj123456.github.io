@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Linux下软件得安装并使用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="白俊杰">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="斯人独憔悴得技术博客 ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">斯人独憔悴得技术博客 </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li class="active">
+                    <a href="/category/ji-zhu.html">
+						<i class="icon-folder-open icon-large"></i>技术
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Linux下软件得安装并使用">
+                                        Linux下软件得安装并使用
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-07-13T11:23:00+02:00">
+        <i class="icon-calendar"></i>周五 13 七月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>安装anocanda</h1>
+<p>wget  https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh</p>
+<p>安装：</p>
+<p>bash Anaconda3-4.4.0-Linux-x86_64.sh</p>
+<p>​   (如果提示错误可执行：yum install -y nzip2)    </p>
+<p><strong>添加环境变量</strong></p>
+<div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="p">.</span><span class="n">bashrc</span>
+
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;/root/anaconda3/bin:$PATH&quot;</span>
+
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;/root/anaconda3/bin/python:$PATH&quot;</span>
+</pre></div>
+
+
+<p>保存后，使用</p>
+<div class="highlight"><pre><span></span><span class="k">source</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="p">.</span><span class="n">bashrc</span>
+</pre></div>
+
+
+<hr>
+<p>如果有python2与python3并存问题，可修改软连接处理：</p>
+<div class="highlight"><pre><span></span><span class="n">mv</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">bak</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">python3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span>
+<span class="n">mv</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip</span><span class="p">.</span><span class="n">bak</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">python3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip3</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip</span>
+</pre></div>
+
+
+<p>修改完成后  当输入 python时  会出python3     输入pip  会出pip3</p>
+<h1>linux安装mysql数据库服务</h1>
+<h1></h1>
+<table>
+<thead>
+<tr>
+<th>解释</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安装服务端</td>
+<td>yum install mysql-community-server</td>
+</tr>
+<tr>
+<td>启动</td>
+<td>service mysqld start</td>
+</tr>
+<tr>
+<td>停止</td>
+<td>service mysqld stop</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>CentOS下自带mariadb    可以通过下面命令删除</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">remove</span> <span class="n">mariadb</span><span class="o">-</span><span class="n">libs</span><span class="p">.</span><span class="n">x86_64</span>
+</pre></div>
+
+
+<blockquote>
+<p>安装Mysql57</p>
+<p><code>yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></p>
+<p>安装数据库服务</p>
+<p><code>yum install mysql-community-server</code></p>
+<p>启动数据库</p>
+<p><code>service mysqld start</code></p>
+<p>停止数据库</p>
+<p><code>service mysqld stop</code></p>
+</blockquote>
+<h1>Linux网络连接</h1>
+<p>ifconfig</p>
+<p>ip addr</p>
+<p>cd /</p>
+<p>cd /etc/sysconfig/newwork-scripts/ifcfg-xxx</p>
+<div class="highlight"><pre><span></span><span class="err">将最后一行的</span> <span class="k">no</span> <span class="err">修改为</span> <span class="n">yes</span>
+<span class="n">i</span> <span class="err">修改</span>
+<span class="n">Esc</span> <span class="err">退出</span>
+<span class="err">：</span><span class="n">wq</span> <span class="err">保存退出</span>
+</pre></div>
+
+
+<p>配置完成后关闭客户机</p>
+<p>编辑--&gt;虚拟网络编辑器--&gt;还原默认设置</p>
+<p>vi /etc/resolv.conf         （添加nameserver114.114.114.114）</p>
+<p>service network restart    重启网络服务</p>
+<p>yum provides ifconfig      安装ifconfig</p>
+<p>yum install net-tools</p>
+<blockquote>
+<p>ifcfg-xxx     的配置文件内容   提供参考不做修改</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">DEVICE</span><span class="o">=</span><span class="n">eth0</span>                              <span class="o">//</span> <span class="err">装置名称</span>
+<span class="n">BOOTPROTO</span><span class="o">=</span><span class="k">none</span>                    <span class="o">//</span> <span class="err">启动引导协议</span>
+<span class="n">ONBOOT</span><span class="o">=</span><span class="n">yes</span>                             <span class="o">//</span> <span class="err">启动加载</span>
+<span class="n">IPADDR</span><span class="o">=</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">200</span>              <span class="o">//</span> <span class="n">IP地址</span>                              <span class="err">若无，手动添加</span>
+<span class="n">NETMASK</span><span class="o">=</span><span class="mi">255</span><span class="p">.</span><span class="mi">255</span><span class="p">.</span><span class="mi">255</span><span class="p">.</span><span class="mi">0</span>          <span class="o">//</span> <span class="err">网络掩码；子网掩码</span>          <span class="err">若无，手动添加</span>
+<span class="n">BROADCAST</span><span class="o">=</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">255</span>      <span class="o">//</span> 
+<span class="n">GATEWAY</span><span class="o">=</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>              <span class="o">//</span> <span class="err">网关</span>            <span class="err">若无，手动添加</span>
+<span class="k">TYPE</span><span class="o">=</span><span class="n">Ethernet</span>
+<span class="k">PREFIX</span><span class="o">=</span><span class="mi">24</span>
+<span class="n">DNS1</span><span class="o">=</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>          <span class="o">//</span> <span class="n">DNS</span> <span class="err">，如果桥接配置下，无</span><span class="n">DNS</span><span class="err">，无法连接</span><span class="n">Inernet</span><span class="err">。</span> <span class="err">若无，需手动添加。</span>
+<span class="n">DEFROUTE</span><span class="o">=</span><span class="n">yes</span>           <span class="o">//</span><span class="err">这个需要打开</span>
+<span class="n">IPV4_FAILURE_FATAL</span><span class="o">=</span><span class="n">yes</span>
+<span class="n">IPV6INIT</span><span class="o">=</span><span class="k">no</span>
+<span class="n">NAME</span><span class="o">=</span><span class="ss">&quot;System eth0&quot;</span>
+<span class="n">UUID</span><span class="o">=</span><span class="mi">5</span><span class="n">fb06bd0</span><span class="o">-</span><span class="mi">0</span><span class="n">bb0</span><span class="o">-</span><span class="mi">7</span><span class="n">ffb</span><span class="o">-</span><span class="mi">45</span><span class="n">f1</span><span class="o">-</span><span class="n">d6edd65f3e03</span>
+<span class="n">LAST_CONNECT</span><span class="o">=</span><span class="mi">1437140517</span>
+</pre></div>
+
+
+<h1>l-修改密码</h1>
+<div class="highlight"><pre><span></span><span class="n">service</span> <span class="n">mysqld</span> <span class="k">start</span>    <span class="o">//</span><span class="err">启动数据库服务</span>
+<span class="err">第一次启动过程中</span>
+<span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span><span class="n">frep</span> <span class="n">mysql</span>                  <span class="o">//</span><span class="err">这条命令查看是否存在</span><span class="n">Mysql服务</span>  
+</pre></div>
+
+
+<blockquote>
+<p>查看mysql 密码</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">mysqld</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span><span class="n">grep</span> <span class="ss">&quot;password&quot;</span> 
+</pre></div>
+
+
+<blockquote>
+<p>修改mysql数据库密码</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="nv">cat</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">log</span><span class="o">/</span><span class="nv">mysqld</span>.<span class="nv">log</span> <span class="o">|</span><span class="nv">grep</span> <span class="s2">&quot;</span><span class="s">password</span><span class="s2">&quot;</span>      <span class="o">//</span>首先查看<span class="nv">mysql</span>数据库密码并赋值
+<span class="nv">mysql</span> <span class="o">-</span><span class="nv">u</span> <span class="nv">root</span> <span class="o">-</span><span class="nv">p</span>              <span class="o">//</span>进入数据库
+<span class="nv">password</span>                         <span class="o">//</span>输入密码
+<span class="nv">set</span> <span class="nv">password</span> <span class="o">=</span> <span class="nv">password</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">123456</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;          //修改密码为123456</span>
+    <span class="o">-</span> 如果显示 <span class="nv">OK</span> 证明修改密码成果
+    <span class="o">-</span> 如果提示 <span class="nv">Your</span> <span class="nv">password</span> <span class="nv">does</span> <span class="nv">not</span> <span class="nv">satisfy</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">policy</span> <span class="nv">requirements</span>
+    <span class="o">-</span> 他的意思是告诉你你密码不符合当前策略要求
+<span class="nv">set</span> <span class="nv">global</span> <span class="nv">validate_password_policy</span><span class="o">=</span><span class="mi">0</span><span class="c1">;       //密码安全策略为0</span>
+<span class="nv">set</span> <span class="nv">global</span> <span class="nv">validate_password_length</span><span class="o">=</span><span class="mi">1</span><span class="c1">;        //密码长度为1</span>
+<span class="nv">alter</span> <span class="nv">user</span> <span class="s1">&#39;</span><span class="s">root</span><span class="s1">&#39;</span>@<span class="s1">&#39;</span><span class="s">localhost</span><span class="s1">&#39;</span> <span class="nv">password</span> <span class="nv">expire</span> <span class="nv">never</span><span class="c1">;  //root密码永不过期</span>
+<span class="nv">flush</span> <span class="nv">privileges</span><span class="c1">;                 //重新加载权限列表</span>
+<span class="nv">set</span> <span class="nv">password</span> <span class="o">=</span> <span class="nv">password</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">123456</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;          //修改密码为123456</span>
+ <span class="o">-</span> 这时候就可以成功了
+<span class="k">exit</span><span class="c1">;        //退出</span>
+ <span class="o">-</span> 可以尝试使用新的密码重新登陆
+</pre></div>
+
+
+<h1>Linux系统下使用虚拟环境</h1>
+<blockquote>
+<p>安装虚拟环境的包</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">virtualenv</span>
+</pre></div>
+
+
+<blockquote>
+<p>创建虚拟环境的软连接</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">python3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">virtualenv</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">virtualenv</span>
+</pre></div>
+
+
+<blockquote>
+<p>创建虚拟环境</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python3</span> <span class="n">xxxxx</span>         
+</pre></div>
+
+
+<blockquote>
+<p>进入虚拟环境</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="k">source</span> <span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+
+
+<blockquote>
+<p>退出虚拟环境</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">deactivate</span>
+</pre></div>
+
+
+<h1>Atom的使用方法</h1>
+<blockquote>
+<p>汉化</p>
+<ul>
+<li>打开 packages –setting views–open </li>
+<li>点击install 输入包名simplified-chinese-menu搜索并安装 </li>
+<li>汉化成功！</li>
+</ul>
+</blockquote>
+<h1>Linux-Webbench压力测试工具安装</h1>
+<p>下载            cd 到tmp目录</p>
+<div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">home</span><span class="p">.</span><span class="n">tiscali</span><span class="p">.</span><span class="n">cz</span><span class="o">/~</span><span class="n">cz210552</span><span class="o">/</span><span class="n">distfiles</span><span class="o">/</span><span class="n">webbench</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<p>解压</p>
+<div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="p">.</span><span class="o">/</span><span class="n">webbench</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<p>安装编译环境</p>
+<div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">gcc</span> <span class="n">ctags</span>
+</pre></div>
+
+
+<p>编译</p>
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="p">.</span><span class="o">/</span><span class="n">webbench</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+<span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">make</span> <span class="n">clean</span>
+</pre></div>
+
+
+<p>如果遇到以下问题：        ps:这是给你参考的要去运行</p>
+<div class="highlight"><pre><span></span><span class="nl">install</span><span class="p">:</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="s1">&#39;/usr/local/man/man1&#39;</span><span class="err">:</span><span class="w"> </span><span class="k">No</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="nl">make</span><span class="p">:</span><span class="w"> </span><span class="o">***</span><span class="w"> </span><span class="o">[</span><span class="n">install</span><span class="o">]</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+
+
+<p>网上解决方法：</p>
+<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">man</span>
+</pre></div>
+
+
+<p>但是我发现<code>man</code>目录是存在的，那问题只可能是权限了,修改好权限，问题解决。</p>
+<div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">man</span>
+</pre></div>
+
+
+<h3>Webbench压力测试工具使语法</h3>
+<div class="highlight"><pre><span></span><span class="nv">webbench</span> [<span class="nv">option</span>]... <span class="nv">URL</span>
+  <span class="o">-</span><span class="nv">f</span><span class="o">|--</span><span class="nv">force</span>               <span class="nv">Don</span><span class="s1">&#39;</span><span class="s">t wait for reply from server.</span>
+  <span class="o">-</span><span class="nv">r</span><span class="o">|--</span><span class="nv">reload</span>              <span class="k">Send</span> <span class="nv">reload</span> <span class="nv">request</span> <span class="o">-</span> <span class="nv">Pragma</span>: <span class="nv">no</span><span class="o">-</span><span class="nv">cache</span>.
+  <span class="o">-</span><span class="nv">t</span><span class="o">|--</span><span class="nv">time</span> <span class="o">&lt;</span><span class="nv">sec</span><span class="o">&gt;</span>          <span class="nv">Run</span> <span class="nv">benchmark</span> <span class="k">for</span> <span class="o">&lt;</span><span class="nv">sec</span><span class="o">&gt;</span> <span class="nv">seconds</span>. <span class="nv">Default</span> <span class="mi">30</span>.
+  <span class="o">-</span><span class="nv">p</span><span class="o">|--</span><span class="nv">proxy</span> <span class="o">&lt;</span><span class="nv">server</span>:<span class="nv">port</span><span class="o">&gt;</span> <span class="nv">Use</span> <span class="nv">proxy</span> <span class="nv">server</span> <span class="k">for</span> <span class="nv">request</span>.
+  <span class="o">-</span><span class="nv">c</span><span class="o">|--</span><span class="nv">clients</span> <span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span>         <span class="nv">Run</span> <span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span> <span class="nv">HTTP</span> <span class="nv">clients</span> <span class="nv">at</span> <span class="nv">once</span>. <span class="nv">Default</span> <span class="nv">one</span>.
+  <span class="o">-</span><span class="mi">9</span><span class="o">|--</span><span class="nv">http09</span>              <span class="nv">Use</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">0</span>.<span class="mi">9</span> <span class="nv">style</span> <span class="nv">requests</span>.
+  <span class="o">-</span><span class="mi">1</span><span class="o">|--</span><span class="nv">http10</span>              <span class="nv">Use</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">1</span>.<span class="mi">0</span> <span class="nv">protocol</span>.
+  <span class="o">-</span><span class="mi">2</span><span class="o">|--</span><span class="nv">http11</span>              <span class="nv">Use</span> <span class="nv">HTTP</span><span class="o">/</span><span class="mi">1</span>.<span class="mi">1</span> <span class="nv">protocol</span>.
+  <span class="o">--</span><span class="nv">get</span>                    <span class="nv">Use</span> <span class="nv">GET</span> <span class="nv">request</span> <span class="nv">method</span>.
+  <span class="o">--</span><span class="nv">head</span>                   <span class="nv">Use</span> <span class="nv">HEAD</span> <span class="nv">request</span> <span class="nv">method</span>.
+  <span class="o">--</span><span class="nv">options</span>                <span class="nv">Use</span> <span class="nv">OPTIONS</span> <span class="nv">request</span> <span class="nv">method</span>.
+  <span class="o">--</span><span class="nv">trace</span>                  <span class="nv">Use</span> <span class="nv">TRACE</span> <span class="nv">request</span> <span class="nv">method</span>.
+  <span class="o">-</span>?<span class="o">|-</span><span class="nv">h</span><span class="o">|--</span><span class="nv">help</span>             <span class="nv">This</span> <span class="nv">information</span>.
+  <span class="o">-</span><span class="nv">V</span><span class="o">|--</span><span class="nv">version</span>             <span class="nv">Display</span> <span class="nv">program</span> <span class="nv">version</span>.
+</pre></div>
+
+
+<p>这里time和clients比较重要，</p>
+<ul>
+<li>
+<p>time是benchmark持续多久</p>
+</li>
+<li>
+<p>clients是指time时间内请求多少次。</p>
+</li>
+</ul>
+<p>比如我们测试百度, 启动100个客户端同时请求百度首页，持续60S：</p>
+<div class="highlight"><pre><span></span><span class="n">webbench</span> <span class="o">-</span><span class="n">t</span> <span class="mi">60</span> <span class="o">-</span><span class="k">c</span> <span class="mi">100</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+</pre></div>
+
+
+<p>运行结果</p>
+<div class="highlight"><pre><span></span><span class="n">Webbench</span> <span class="o">-</span> <span class="k">Simple</span> <span class="n">Web</span> <span class="n">Benchmark</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="k">c</span><span class="p">)</span> <span class="n">Radim</span> <span class="n">Kolar</span> <span class="mi">1997</span><span class="o">-</span><span class="mi">2004</span><span class="p">,</span> <span class="n">GPL</span> <span class="k">Open</span> <span class="k">Source</span> <span class="n">Software</span><span class="p">.</span>
+
+<span class="n">Benchmarking</span><span class="p">:</span> <span class="k">GET</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+<span class="mi">100</span> <span class="n">clients</span><span class="p">,</span> <span class="n">running</span> <span class="mi">60</span> <span class="n">sec</span><span class="p">.</span>
+
+<span class="n">Speed</span><span class="o">=</span><span class="mi">2643</span> <span class="n">pages</span><span class="o">/</span><span class="k">min</span><span class="p">,</span> <span class="mi">5045450</span> <span class="n">bytes</span><span class="o">/</span><span class="n">sec</span><span class="p">.</span>
+<span class="n">Requests</span><span class="p">:</span> <span class="mi">2641</span> <span class="n">susceed</span><span class="p">,</span> <span class="mi">2</span> <span class="n">failed</span><span class="p">.</span>
+</pre></div>
+
+
+<p>ps:网上荡下来的未亲测，如有问题请找即使联系作者。</p>
+<h1>Nginx安装配置</h1>
+<p>Nginx（“引擎x”）是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的Web和反向代理服务器，也是一个IMAP / POP3 / SMTP代理服务器。</p>
+<p>在高连接并发的情况下，Nginx的是Apache的服务器不错的替代品。</p>
+<h4>一.安装编译工具及库文件</h4>
+<div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">make</span> <span class="n">zlib</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">gcc</span><span class="o">-</span><span class="k">c</span> <span class="o">++</span> <span class="n">libtool</span> <span class="n">openssl</span> <span class="n">openssl</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+
+
+<h4>二.首先安装PCRE</h4>
+<p>PCRE作用是让Nginx支持重写功能。</p>
+<ol>
+<li>下载PCRE安装包，下载地址：<a href="http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz">http</a>：  <a href="http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz">//downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz</a></li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span> <span class="n">usr</span> <span class="o">/</span> <span class="k">local</span> <span class="o">/</span> <span class="n">src</span> <span class="o">/</span>
+<span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">downloads</span><span class="p">.</span><span class="n">sourceforge</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">pcre</span><span class="o">/</span><span class="n">pcre</span><span class="o">/</span><span class="mi">8</span><span class="p">.</span><span class="mi">35</span><span class="o">/</span><span class="n">pcre</span><span class="o">-</span><span class="mi">8</span><span class="p">.</span><span class="mi">35</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<ol>
+<li>解压安装包</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">pcre</span><span class="o">-</span><span class="mi">8</span><span class="p">.</span><span class="mi">35</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<ol>
+<li>进入安装目录</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">pcre</span><span class="o">-</span><span class="mi">8</span><span class="p">.</span><span class="mi">35</span>
+</pre></div>
+
+
+<ol>
+<li>编译安装</li>
+</ol>
+<div class="highlight"><pre><span></span>
+</pre></div>
+
+
+<p>不搞了自己看网站去吧：</p>
+<p><a href="https://www.runoob.com/linux/nginx-install-setup.html">https://www.runoob.com/linux/nginx-install-setup.html</a></p>
+<h1>Django Nginx+uWSGI 安装配置</h1>
+<p>链接：🔗</p>
+<p><a href="https://www.runoob.com/django/django-nginx-uwsgi.html">https://www.runoob.com/django/django-nginx-uwsgi.html</a></p>
+<blockquote>
+<p>yum  update</p>
+<p>yum install gcc </p>
+<p>pip  install  uwsgi</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">查看uwsgi动态链接库是否有问题</span><span class="err">：</span><span class="w"></span>
+<span class="n">which</span><span class="w">  </span><span class="n">uwsgi</span><span class="w"></span>
+<span class="n">ldd</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">uwsgi</span><span class="w"></span>
+<span class="nl">发现</span><span class="p">:</span><span class="n">libicui18n</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">found</span><span class="w"></span>
+<span class="w">     </span><span class="n">libicuuc</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">found</span><span class="w"></span>
+<span class="w">     </span><span class="n">libicudata</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">found</span><span class="w"></span>
+<span class="n">通过</span><span class="w"> </span><span class="n">LDD</span><span class="w"> </span><span class="n">发现</span><span class="w"> </span><span class="n">uwsgi</span><span class="w"> </span><span class="n">找不到三个包</span><span class="err">（</span><span class="n">具体就是</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">found</span><span class="w"> </span><span class="n">的三个</span><span class="err">）</span><span class="w"></span>
+<span class="n">于是就把anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="w"> </span><span class="n">下相应的包软链到</span><span class="o">/</span><span class="n">lib64下去</span><span class="err">（</span><span class="mi">64</span><span class="nc">bit</span><span class="w"> </span><span class="n">机器</span><span class="err">，</span><span class="n">如果时32bit</span><span class="w"> </span><span class="n">机器则软链到</span><span class="o">/</span><span class="n">lib下</span><span class="err">）</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="k">ln</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libicui18n</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libicui18n</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="k">ln</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libicuuc</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libicuuc</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="k">ln</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libicudata</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libicudata</span><span class="p">.</span><span class="n">so</span><span class="mf">.58</span><span class="w"></span>
+<span class="nl">运行uwsgi</span><span class="p">:</span><span class="n">发现还有问题</span><span class="w"></span>
+<span class="n">于是</span><span class="err">：</span><span class="w"></span>
+<span class="w">    </span><span class="n">把libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="mf">.6.0.24</span><span class="n">拷贝到</span><span class="o">/</span><span class="n">lib64目录下</span><span class="err">。</span><span class="w"></span>
+<span class="w">      </span><span class="n">cp</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="mf">.6.0.25</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="w"></span>
+<span class="w">    </span><span class="n">删除原来的libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span><span class="n">符号连接</span><span class="err">。</span><span class="w"></span>
+<span class="w">      </span><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">fr</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span><span class="w"></span>
+<span class="w">    </span><span class="n">新建新符号连接</span><span class="err">。</span><span class="w"></span>
+<span class="w">      </span><span class="k">ln</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="mf">.6.0.25</span><span class="w"> </span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libstdc</span><span class="o">++</span><span class="p">.</span><span class="n">so</span><span class="mf">.6</span><span class="w"></span>
+<span class="w">    </span><span class="n">再次执行uwsgi查看结果符合就哦了</span><span class="err">。</span><span class="w"></span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">测试：创建</span><span class="n">index</span><span class="o">.</span><span class="n">py</span>
+<span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
+    <span class="n">start_response</span><span class="p">(</span><span class="s1">&#39;200 OK&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="s1">&#39;text/html&#39;</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Hello World&quot;</span><span class="p">]</span>
+
+<span class="n">uwsgi</span> <span class="o">--</span><span class="n">http</span> <span class="p">:</span><span class="mi">9090</span> <span class="o">--</span><span class="n">wsgi</span><span class="o">-</span><span class="nb">file</span> <span class="n">index</span><span class="o">.</span><span class="n">py</span>
+<span class="err">浏览器访问</span><span class="mi">9090</span><span class="err">端口</span>
+</pre></div>
+
+
+<h6>添加并发</h6>
+<div class="highlight"><pre><span></span><span class="n">uwsgi</span> <span class="o">--</span><span class="n">http</span> <span class="p">:</span><span class="mi">9090</span> <span class="o">--</span><span class="n">wsgi</span><span class="o">-</span><span class="nb">file</span> <span class="n">index</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">processes</span> <span class="mi">4</span> <span class="o">--</span><span class="n">threads</span> <span class="mi">2</span>
+</pre></div>
+
+
+<h6>部署 Django</h6>
+<div class="highlight"><pre><span></span><span class="c1">#在项目中创建djangospider.ini</span>
+<span class="p">[</span><span class="n">uwsgi</span><span class="p">]</span>
+<span class="c1"># 使用Nginx做反向代理时使用socket</span>
+<span class="c1">#socket=127.0.0.1:8080</span>
+<span class="c1"># 不通过Nginx反向代理，直接做web服务器时使用http</span>
+<span class="n">http</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8000</span>
+<span class="c1">#项目目录</span>
+<span class="n">chdir</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">DjangoSpider</span><span class="o">/</span>
+<span class="n">wsgi</span><span class="o">-</span><span class="nb">file</span> <span class="o">=</span> <span class="n">DjangoSpider</span><span class="o">/</span><span class="n">wsgi</span><span class="o">.</span><span class="n">py</span>
+<span class="n">processes</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">threads</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1">#django项目setting中</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[]</span> <span class="err">改为</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">]</span>
+
+<span class="err">启动：</span><span class="n">uwsji</span> <span class="o">--</span><span class="n">ini</span>  <span class="n">djangospider</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">在</span><span class="n">www中创建uwsgi文件夹</span><span class="err">，用来存放</span><span class="n">uwsgi相关文件</span>
+<span class="c1">#### 启动： </span>
+<span class="n">uwsgi</span> <span class="o">--</span><span class="n">ini</span> <span class="n">xxx</span><span class="o">.</span><span class="n">ini</span>
+<span class="c1">#### 重启：</span>
+<span class="n">uwsgi</span> <span class="o">--</span><span class="nb">reload</span> <span class="n">xxx</span><span class="o">.</span><span class="n">pid</span>
+<span class="c1">#### 停止：</span>
+<span class="n">uwsgi</span> <span class="o">--</span><span class="n">stop</span> <span class="n">xxx</span><span class="o">.</span><span class="n">pid</span>
+</pre></div>
+
+
+<h1>配置Nginx</h1>
+<p><img alt="img" src="C:/Users/ASUS/Desktop/%E5%B0%8F%E6%97%B6%E5%86%9B/assets/20181226194100326.png"> </p>
+<p><strong>nginx服务器安装：</strong></p>
+<div class="highlight"><pre><span></span><span class="err">下载对应当前系统版本的</span><span class="n">nginx包</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+<span class="o">#</span> <span class="n">wget</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">nginx</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">noarch</span><span class="o">/</span><span class="n">RPMS</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">centos</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="n">el7</span><span class="p">.</span><span class="n">ngx</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span>
+
+<span class="err">建立</span><span class="n">nginx的yum仓库</span>
+<span class="o">#</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">nginx</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">centos</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="n">el7</span><span class="p">.</span><span class="n">ngx</span><span class="p">.</span><span class="n">noarch</span><span class="p">.</span><span class="n">rpm</span>
+
+<span class="err">下载并安装</span><span class="n">nginx</span>
+<span class="o">#</span> <span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">nginx</span>
+
+<span class="err">启动</span><span class="n">nginx服务</span>
+<span class="n">systemctl</span> <span class="k">start</span><span class="o">/</span><span class="k">restart</span> <span class="n">nginx</span>
+<span class="err">验证：直接请求</span><span class="n">IP</span><span class="err">，可见</span><span class="n">nginx</span>
+
+<span class="err">配置</span>
+<span class="err">默认的配置文件在</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span> <span class="err">路径下，使用该配置已经可以正确地运行</span><span class="n">nginx</span><span class="err">；如需要自定义，修改其下的</span> <span class="n">nginx</span><span class="p">.</span><span class="n">conf</span> <span class="err">等文件即可。</span>
+
+
+<span class="err">查看是否启动：（如果有</span><span class="n">master和worker两个进程证明启动成功</span><span class="err">）</span>
+<span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">nginx</span>
+
+<span class="err">停止</span><span class="p">(</span><span class="err">建议用</span><span class="n">quit</span><span class="err">，不建议用</span><span class="n">stop</span><span class="p">)</span>
+<span class="n">nginx</span> <span class="o">-</span><span class="n">s</span> <span class="n">quit</span>
+
+<span class="err">重新加载配置文件</span>
+<span class="n">nginx</span> <span class="o">-</span><span class="n">s</span> <span class="n">reload</span>
+
+<span class="err">默认配置文件位置</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span>
+<span class="err">备份默认配置文件</span>
+<span class="n">cp</span>  <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="n">bak</span>
+
+<span class="n">welcome所在位置</span><span class="err">（默认值：</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="err">）</span>
+</pre></div>
+
+
+<p><strong>修改nginx配置文件：</strong></p>
+<div class="highlight"><pre><span></span><span class="nv">server</span> {
+    <span class="nv">listen</span>       <span class="mi">80</span><span class="c1">;</span>
+    <span class="nv">server_name</span>  <span class="nv">localhost</span><span class="c1">;   # 对外部用户提供的统一域名</span>
+
+    # 将动态请求转发给<span class="nv">uwsgi</span>服务器
+    <span class="nv">location</span> <span class="o">/</span> {
+        # 包含<span class="nv">uwsgi</span>请求的参数
+        <span class="k">include</span> <span class="nv">uwsgi_params</span><span class="c1">;</span>
+        # 转交请求给<span class="nv">uwsgi</span>服务器 <span class="ss">(</span><span class="nv">uwsgi</span>服务器的<span class="nv">ip</span>和端口号<span class="ss">)</span>
+        #<span class="nv">uwsgi_pass</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">8000</span><span class="c1">;  # 单个uwsgi服务器(不需要负载均衡)</span>
+        <span class="nv">uwsgi_pass</span> <span class="nv">upstream1</span><span class="c1">;</span>
+    }
+
+    # 如果是静态资源请求就直接响应资源。
+    <span class="nv">location</span> <span class="o">/</span><span class="nv">static</span> {
+        # 指定静态文件存放的目录 <span class="ss">(</span>需要修改<span class="o">/</span><span class="nv">usr</span><span class="o">/</span>...目录的操作权限。 $ <span class="nv">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="nv">usr</span><span class="ss">)</span>
+        <span class="nv">alias</span> <span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">www</span><span class="o">/</span><span class="nv">D_text04</span><span class="o">/</span><span class="nv">static</span><span class="o">/</span><span class="c1">;</span>
+    }
+}
+</pre></div>
+
+
+<p><strong>验证：</strong></p>
+<p>nginx -s   reload   </p>
+<p>请求80端口，可能出现permission 问题（办法：先关掉selinux，setenforce 0 ）</p>
+<p><strong>收集Django中的静态资源：</strong></p>
+<div class="highlight"><pre><span></span><span class="err">项目名</span><span class="o">/</span><span class="n">settings</span><span class="p">.</span><span class="n">py</span><span class="err">（项目配置，</span><span class="n">STATIC_ROOT设置收集静态资源的路径</span><span class="err">）：</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
+<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">)]</span>
+<span class="o">#</span> <span class="err">指定收集静态文件的路径</span> <span class="p">(</span><span class="err">需要修改</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="p">...</span><span class="err">目录的操作权限</span><span class="p">)</span>
+<span class="n">STATIC_ROOT</span><span class="o">=</span><span class="s1">&#39;./static&#39;</span>
+
+<span class="err">$</span> <span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">collectstatic</span>
+<span class="err">配置完静态资源后</span>  <span class="err">在</span><span class="n">uwsgi</span><span class="p">.</span><span class="n">ini中添加</span>
+<span class="err">$</span><span class="k">static</span><span class="o">-</span><span class="k">map</span> <span class="o">=</span> <span class="o">/</span><span class="k">static</span><span class="o">=</span><span class="k">static</span>
+<span class="err">就可以显示静态文件</span>
+</pre></div>
+
+
+<h1>修改yum源为阿里</h1>
+<ol>
+<li>备份本地yum源</li>
+</ol>
+<p>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak </p>
+<p>2.获取阿里yum源配置文件</p>
+<p>将https://mirrors.tuna.tsinghua.edu.cn/help/centos/  中的内容粘贴到CentOS-Base.repo</p>
+<p>3.更新cache</p>
+<p>yum  clean   all</p>
+<p>yum makecache </p>
+<p>4.查看</p>
+<p>yum -y update </p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/ji-zhu.html">
+    <i class="icon-folder-open icon-large"></i>技术
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

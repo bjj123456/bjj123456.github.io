@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>django中sql得基本操作</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="白俊杰">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="斯人独憔悴得技术博客 ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">斯人独憔悴得技术博客 </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li class="active">
+                    <a href="/category/ji-zhu.html">
+						<i class="icon-folder-open icon-large"></i>技术
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to django中sql得基本操作">
+                                        django中sql得基本操作
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-03-13T22:20:00+01:00">
+        <i class="icon-calendar"></i>周二 13 三月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info -->                </div>
+                <p>在Django中操作数据库的方式有两种，第一种就是使用ORM模型来操作，第二种就是使用原生sql语句操作。</p>
+<p>命令行管理工具下输入命令进行测试：
+python .\manage.py shell        ：打开数据库测试的shell工具
+from 子应用.models import *        ：引入models下的所有类
+dir()                   ：查询结果集
+exit()                  ：退出
+cls                 ：清屏</p>
+<p>变量 = 类名.objects.create(字段1='值') ：创建数据   （以变量接收内存中的实例）
+变量.save()               ：保存到数据库 （操作实例完成后必须使用.save()作用到数据库）
+    【在我们显示调用save()之前，django不会访问数据库，实例数据只存在于内存中】</p>
+<p>Manager(管理器)是每一个模型类所具有的，默认名为objects，通过模型类调用orm数据接口，对数据表进行操作。</p>
+<p>增：
+create()方法创建数据：
+变量 = 类名.objects.create(字段1='值')
+    【也可以通过 变量.save() 进行逐条添加】</p>
+<p>查：
+all()       ：查询所有，返回一个数据对象结果集
+变量 = 类名.objects.all()
+    【还可以通过下标[0]，切片[0:2]，第一个first()，最后一个last()进行取值】</p>
+<p>filter()    ：条件查询，返回一个数据对象结果集
+变量 = 类名.objects.filter(age=16)
+变量 = 类名.objects.all().filter(age=16)
+变量 = 类名.objects.filter(age__gt=16)
+    【还可以在字段名之后使用双下化线来标明更加详细的字段筛选条件也叫做链式过滤】
+模糊查询的参数：</p>
+<p>__iexact='asd'      ：查询字段中是 asd 的数据 忽略大小写
+__istartswith='王'   ：查询字段中以 王 开始的数据 忽略大小写</p>
+<p>__iendswith='王' ：查询字段中以 王 结尾的数据 忽略大小写
+__startswith='王'    ：查询字段中以 王 开始的数据</p>
+<p>__endswith='王'      ：查询字段中以 王 结尾的数据
+__contains='王'      ：查询字段中包含 王 的数据</p>
+<p>__in=[1,3,5]        ：查询字段中是 1 3 5 的数据
+__lt            ：小于</p>
+<p>__lte           ：小于等于
+__gt            ：大于</p>
+<p>__gte           ：大于等于</p>
+<p>exclude()   ：与filter()相反查询所有不满足条件的，参数同上，返回一个数据对象结果集
+变量 = 类名.objects.exclude(age=18)         ：查询所有年龄不等于18的数据
+变量 = 类名.objects.all().filter(age=16).exclude(id=3)</p>
+<p>order_by()  ：查询结果的排序，返回一个数据对象结果集
+变量 = 类名.objects.order_by('age')
+变量 = 类名.objects.all().order_by('-age')</p>
+<p>get()       ：获取唯一单条数据，返回一条匹配的结果
+变量 = 类名.objects.get(id=1)</p>
+<p>count()     ：相当于len()的使用，返回数据库中对应字段的个数
+变量 = 类名.objects.filter(age=20).count()
+变量 = 类名.objects.count()
+    【推荐使用len(变量)而不使用count()因为它提高了sql查询的负担】</p>
+<p>values()    ：返回的是字典而不是数据实例对象结果集
+变量 = 类名.objects.all().values()</p>
+<p>改：
+获取到对应的数据实例之后，通过‘.’的方式访问数据实例中的属性，进行数据的字段修改
+变量 = 类名.objects.get(id=1)
+变量.age = 21
+变量.save()</p>
+<p>删：
+类名.objects.get(id=1).delete()
+    【创建和删除是不需要进行.save()保存的】</p>
+<p>一对一：    继承关系并且不能使用反向查询。
+a1 = 类1.objects.create(name='小王',age=18)          # 创建表1的字段行1
+a2 = 类1.objects.create(name='小红',age=19)          # 创建表1的字段行2
+b1 = 类2.objects.create(关联字段名=a1,gender='男')    # 表2中的字段名为 关联字段名_id 关联的是a1对应的id行</p>
+<p>b1.关联字段名 = a2                     # 修改 关联字段名_id 下的关联id为 a2对应的id行
+b1.关联字段名.name                     # 通过 关联id字段 找到对应表1的字段值</p>
+<p>一对多：    关联字段名所关联的数据必须是一个实例，并且可以使用反向查询。
+    【父表中隐藏了子表属性'小写子表名'】
+    【把关联表字段设置了null=True，子表创建时不填写此字段就可以直接保存。】
+a1 = 类1.objects.create(tname='老师1')             # 创建表1的字段行1
+a2 = 类1.objects.create(tname='老师2')
+b1 = 类2.objects.create(sname='学生1',关联字段名=a1)    # 关联字段名_id 接收a1字段行实例
+b2 = 类2.objects.create(sname='学生2',关联字段名=a2)</p>
+<p>_set反向查询的使用：
+a1.小写子类名_set.all()                  ：通过 父类 查询其下所属 子类</p>
+<p>正向查询：
+子类.objects.filter(关联字段名__tname='老师1')       ：查找老师1带的学生
+    【查找的是学生，所以用学生表开头，条件是老师1，所以filter中正向直接使用关联字段名找到老师1】
+反向查询：
+父类.objects.filter(小写子类__sname__endswith='1')    ：查找以1结尾的学生的老师
+    【查找的是老师，所以用老师表开头，条件是学生，所以filter中反向可以使用小写学生表__属性】</p>
+<p>使用_set与小写表名的区别：
+    _set     前面使用的是 表中的行数据  （针对于数据）
+    小写表名 前面使用的是 整个表     （针对于表）</p>
+<p>多对多：    可以是具有关联，也可以是没有关联，所以不需要明确指定<code>on_delete</code>属性
+    【多对多外键关系的添加 用到的是add()函数方法】
+a1 = 类1.objects.create(tname='老师1')
+a2 = 类1.objects.create(tname='老师2')
+b1 = 类2.objects.create(sname='学生1',sage=11)
+b2 = 类2.objects.create(sname='学生2',sage=12)
+b3 = 类2.objects.create(sname='学生3',sage=13)
+b4 = 类2.objects.create(sname='学生4',sage=14)</p>
+<p>b1.关联字段名.add(a1,a2)         ：给学生1关联两个老师，存储在外键关联表中</p>
+<p>正向查询：
+b1.关联字段名.all()              ：查询学生1的所有老师
+b1.关联字段名.filter(tname='老师1')        ：查询学生1的老师，名字为老师1的数据</p>
+<p>类2.objects.filter(关联字段名__name='老师1')    ：查询老师1的所有学生</p>
+<p>反向查询：
+a1.小写表名_set.all()               ：查询老师1的所有学生</p>
+<p>类1.objects.filter(小写表名=b1)          ：查询学生1的所有老师
+类1.objects.filter(小写表名__sname='学生1')</p>
+<p>删除：多对多关联字段的删除要使用 remove 删除的不是数据而是关系
+a1.小写表名_set.remove(b1,b2)           ：删除外键关系表中的对应关系数据</p>
+<p>django中使用原生SQL的几种方式 ：</p>
+<p>一：extra:结果集修改器，一种提供额外查询参数的机制</p>
+<p>使用ORM模型：
+类名.objects.filter(name='小王',age__gt=50)</p>
+<p>使用原生sql：  <br>
+1.
+类名.objects.filter(name='小王').extra(where=['age&gt;10'])
+2.
+类名.objects.extra(select={'变量':'select count(*) from 数据库中的表名'})</p>
+<p>二：raw:执行原始sql并返回模型实例</p>
+<p>表名.objects.raw('select * from 数据库中的表名')
+<strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>****暂空</p>
+<p>三：直接执行自定义Sql，前两种是依赖于model的，这种方式完全不依赖model,在views.py中写入def函数</p>
+<p>from django.db import connection
+cursor=connection.cursor()</p>
+<h1>插入操作</h1>
+<p>cursor.execute("insert into 数据库中的表名(name) values('小王')")</p>
+<h1>更新操作</h1>
+<p>cursor.execute('update 数据库中的表名 set name='小小王' where name='小王'')</p>
+<h1>删除操作</h1>
+<p>cursor.execute('delete from 数据库中的表名 where name='小小王'')</p>
+<h1>查询操作</h1>
+<p>cursor.execute('select * from 数据库中的表名')
+raw=cursor.fetchone()   #返回结果行游标直读向前，读取一条
+cursor.fetchall()   #读取所有</p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/ji-zhu.html">
+    <i class="icon-folder-open icon-large"></i>技术
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

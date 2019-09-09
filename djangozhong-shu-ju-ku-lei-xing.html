@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>django中数据库类型</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="白俊杰">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="斯人独憔悴得技术博客 ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">斯人独憔悴得技术博客 </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li class="active">
+                    <a href="/category/ji-zhu.html">
+						<i class="icon-folder-open icon-large"></i>技术
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to django中数据库类型">
+                                        django中数据库类型
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-03-22T22:02:00+01:00">
+        <i class="icon-calendar"></i>周四 22 三月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info -->                </div>
+                <p>数据库类型：
+AutoField       ：自动增长的主键id，通常不用指定，不指定时Django会自动创建属性名为id的自动增长属性</p>
+<p>BooleanField：布尔字段，值为True或False。
+NullBooleanField    ：布尔字段，支持Null、True、False三种值。
+    （default=True设置默认值）</p>
+<p>CharField       ：字符串。
+URLField        ：存储URL的字段。  <br>
+EmailField      ：Email字段，并会检查是否为合法邮箱地址。
+SlugField       ：存储只包含字母、数字、下划线的字符串。
+TextField       ：大文本字段，一般超过4000个字符时使用。
+    (max_length=字符长度)CharField的必须参数其他为可选参数</p>
+<p>IntegerField    ：整数。
+DecimalField    ：十进制浮点数。
+FloatField      ：浮点数。
+    (max_digits=总位数, decimal_places=小数位数)</p>
+<p>DateField       ：日期。
+TimeField       ：时间。
+DateTimeField   ：日期时间。
+    （[auto_now=False, auto_now_add=False])参数auto_now_add和auto_now是相互排斥的，组合将会发生错误。</p>
+<p>FileField       ：上传文件字段。
+ImageField  ：继承于FileField，对上传的内容进行校验，确保是有效的图片。</p>
+<p>GenericIPAddressField   ：IPV4或IPV6地址的字符串两个默认参数 用于判断此ip为爬虫时将其封禁
+         protocol   ：IP协议，ipv4或ipv6，默认<code>both</code>为全选
+    unpack_ipv4 ：解析IP地址，只有当协议为<code>both</code>时才可以使用</p>
+<p>数据库参数：
+primary_key ：该值为True时，则该字段会成为模型的主键字段，一般作为AutoField的选项使用。
+    （默认为false）
+default     ：默认值。
+max_length  ：表示最大字符个数
+max_digits  ：表示总位数
+decimal_places  ：表示小数位数
+verbose_name    ：给当前字段起详细的名字（Admin中显示的字段名称）</p>
+<p>auto_now        ：该值为True时，每次在保存数据对象时自动设置该字段为当前时间，自动更新最后一次修改时间
+        （默认为false）
+auto_now_add    ：该值为True时，该字段设置在第一次数据对象创建时，可以记录当前字段创建的时间值
+    （默认为false）</p>
+<p>unique      ：该值为True时, 这个字段在表中必须有唯一值，这个字段还会在模型层验证存储的数据是否唯一。
+unique_for_date ：数据库中字段【日期】部分是否可以建立唯一索引
+unique_for_month：数据库中字段【月】部分是否可以建立唯一索引
+unique_for_year ：数据库中字段【年】部分是否可以建立唯一索引
+    （默认为false）</p>
+<p>null        ：该值为True时，表示允许为空。
+    （默认为false）
+blank       ：该值为True时，则对应表单字段也允许为空。
+    （默认为false）
+    （null是数据库范畴的概念，blank是对应表单验证范畴的）
+    （对于字符串类型的数据字段，django使用空字符串代表空值（""）而不是null值，所以要避免使用null）</p>
+<p>db_column   ：字段的名称，如果未指定，则使用属性的名称。
+db_index    ：字段的索引，若值为True, 则在表中会为此字段创建索引。
+    （默认为false）</p>
+<p>help_text       ：Admin中该字段的提示信息
+editable    ：该值为False时，那么这个字段将不允许在Admin中被编辑
+    （默认为True）
+choices     ：下拉菜单，需要在类中自定义一个二个元组数据的嵌套型列表或元组，也支持分类的写法：三层嵌套
+    （二元祖中第一个值为存储在数据库中，第二个值为展示在下拉菜单中）
+    （该值一旦被设定，表单样式会显示下拉选择框，而不是文本框）</p>
+<p>数据库的元参数属性：
+abstract    ：abstract=True代表当前模型类为抽象基类，不会创建真正的数据表，只是为了其他模型类继承使用</p>
+<p>ORM对应的类里面包含另一个class Meta：类，而Meta类封装了一些数据库的信息。主要字段如下：</p>
+<p>db_table    ：ORM在数据库中的表名默认是 子应用_类名，可以通过db_table重写表名，必须使用在数据表创建之前
+        （db_table = "table_name"）
+index_together  ：联合索引。格式为一个元组嵌套元组，用来表示唯一记录，联合同步查询，提高效率。
+        （index_together = (('name','phone'),)）
+unique_together ：联合唯一索引。格式为一个元组嵌套元组，用来设置不能重复的字段组合。（如用户名密码）
+        （unique_together = (('name','phone'),)）
+ordering    ：指定默认按什么字段排序。格式为一个列表或元组，可以使用"-"来倒序排序，使用"?"随机排序
+        （ordering = ['-birthday', 'age']）
+verbose_name    ：设置该表展示时所用的名称，名称被自动处理为复数。
+        （verbose_name='哈哈'显示时以s结尾）
+verbose_name_plural ：与<code>verbose_name</code>功能相同，但是不会自动在字符串后加"s"以表复数
+        （verbose_name_plural='哈哈'显示时无s）
+app_label   ：当模型类被定义在了其他子应用下，这个属性用来描述当前表属于哪个app应用
+        （app_label = "MyApp"）</p>
+<p>数据库关系：</p>
+<p>1 一对一关系
+　　　　models.OntoOneField()
+　　　　定义在哪一个类都可以  （参数为1.2.3）
+　　2 一对多关系
+　　　　models.ForignKey() # 外键约束
+　　　　定义在多类中      （参数为1.2.3.4.5）
+　　3 多对多关系
+　　　　models.ManyToManyField()
+　　　　定义在哪一个类都可以  （参数为1.4.5.6.7.8.9）
+    在使用ManyToManyField字段时，Django将自动生成一张表来管理多对多的关联关系</p>
+<p>数据库关系参数：
+    1.  to          ：设置要关联的表</p>
+<ol>
+<li>to_field     ：设置要关联的表的字段<ol>
+<li>on_delete        ：当删除关联表中的数据时，当前表与其关联的行的行为。</li>
+</ol>
+</li>
+<li>related_name     ：反向操作时，使用的字段名，用于代替原反向查询时的'表名_set'。<ol>
+<li>related_query_name   ：反向查询操作时，使用的连接前缀，用于替换表名。</li>
+<li>symmetrical      ：仅用于多对多自关联时，指定内部是否创建反向操作的字段。默认为True。</li>
+<li>through      ：手动创建第三张表来管理多对多关系，通过through来指定第三张表的表名。</li>
+<li>db_table     ：默认创建第三张表时，数据库中表的名称。</li>
+<li>through_fields       ：设置关联的字段。</li>
+</ol>
+</li>
+</ol>
+<p>外键：on_delete
+在设置外键时，需要通过on_delete选项指明主表删除数据时，对于外键引用表数据如何处理。
+在django.db.models中包含了可选常量：on_delete = models.
+    CASCADE（级联）     ：连同删除 删除主表数据时连同一起删除外键表中数据
+    PROTECT（保护）     ：阻止删除 通过抛出ProtectedError受保护异常来阻止删除主表中被外键应用的数据
+    SET_NULL（设置为NULL）   ：与之关联的值设置为null（前提外键字段需要设置为可空）
+    SET_DEFAULT（设置为默认值） ：与之关联的值设置为默认值（前提外键字段需要设置默认值）
+    DO_NOTHING（不做任何操作）  ：如果数据库前置指明级联性，此选项会抛出IntegrityError完整性异常
+    db_constraint（约束）   ：是否在数据库中创建外键约束，默认为True。
+    SET()（设置）       ：与之关联的值设置为指定值，或者与之关联的值设置为可执行对象的返回值
+    models.SET(值) 或者调用特定方法 models.SET(可执行对象函数名)</p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/ji-zhu.html">
+    <i class="icon-folder-open icon-large"></i>技术
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

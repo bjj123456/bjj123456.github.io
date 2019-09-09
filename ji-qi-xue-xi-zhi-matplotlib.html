@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>机器学习之matplotlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="白俊杰">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="斯人独憔悴得技术博客 ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">斯人独憔悴得技术博客 </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li class="active">
+                    <a href="/category/ji-zhu.html">
+						<i class="icon-folder-open icon-large"></i>技术
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to 机器学习之matplotlib">
+                                        机器学习之matplotlib
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-10-06T21:20:00+02:00">
+        <i class="icon-calendar"></i>周六 06 十月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>matplotlib得使用</h1>
+<ul>
+<li>
+<h3>在绘图时必须进行导包</h3>
+</li>
+</ul>
+<p>##### from matplotlib import pyplot as plt</p>
+<ul>
+<li>
+<h4>如果你要在里面添加中文· 也要导包 并进行设置：</h4>
+<h5>import matplotlib</h5>
+<h5>matplotlib.rcParams['font.sans-serif']=['SimHei']  #<em>设置中文</em></h5>
+</li>
+<li>
+<h3>柱状图</h3>
+</li>
+<li>
+<h4>plt.bar()</h4>
+<ul>
+<li>
+<h5>plt.bar(range(5),[100,200,300,400,500],label='people')</h5>
+</li>
+</ul>
+<p><strong><em>range（设置x轴上数据的个数，里面的值和你后面设置的数值个数必须一样）</em></strong></p>
+<p><strong>label()进行绘制图例</strong>  </p>
+<p>###### 在绘制图例时  必须写  plt.legend()来进行绘制图例</p>
+<ul>
+<li>
+<h5>plt.legend()   <em>#绘制图例</em></h5>
+</li>
+<li>
+<h5>plt.xlabel('x')  <em>#给x轴进行标记（取名）</em></h5>
+</li>
+<li>
+<h5>plt.xlabel('y')  *<em>#给y轴进行标记（取名）</em></h5>
+</li>
+<li>
+<h5>plt.xticks(range(5),['A','B','C','D','E'])  <em>#x轴刻度</em></h5>
+</li>
+<li>
+<h5>plt.show()   #进行查看</h5>
+</li>
+</ul>
+</li>
+<li>
+<h2>折线图</h2>
+</li>
+<li>
+<h4>plt.plot()</h4>
+<ul>
+<li>
+<h5>plt.plot([100,50,300,200,500],color='red',label='爸爸')</h5>
+</li>
+</ul>
+<p>##### lable设置图例  (不会看柱状图)</p>
+</li>
+<li>
+<h2>扇形图（饼状图）</h2>
+</li>
+<li>
+<h5>plt.pie(autopct='%1.0f%%')   （在写扇形图时 必须设置百分比）</h5>
+<ul>
+<li>
+<h5>举例</h5>
+</li>
+</ul>
+<p><strong><em>plt.pie([100,200,50,150],autopct='%1.0f%%',labels=['a','b','c','d'])</em></strong></p>
+<p>###### labels给每个对应的板块取名</p>
+<p>###### autopct<em>设置百分比</em> </p>
+</li>
+<li>
+<h2>直方图（统计出现的次数）</h2>
+</li>
+<li>
+<h5>plt.hist()</h5>
+<ul>
+<li>
+<h5>举例</h5>
+</li>
+</ul>
+<p>##### plt.hist([100,200,300,250,100])</p>
+</li>
+</ul>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/ji-zhu.html">
+    <i class="icon-folder-open icon-large"></i>技术
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

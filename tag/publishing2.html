@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>斯人独憔悴得技术博客 - publishing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="白俊杰">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="斯人独憔悴得技术博客 ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">斯人独憔悴得技术博客 </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/category/ji-zhu.html">
+						<i class="icon-folder-open icon-large"></i>技术
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+        <div class="article">
+                <h1><a href="/redisjian-jie.html">redis简介</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-08-14T22:20:00+02:00">
+        <i class="icon-calendar"></i>周二 14 八月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><h1>redis 数据持久化</h1>
+<ul>
+<li>Redis支持数据得持久化，可以将内存中得数据保存在磁盘中，重启得时候可以再次加载使用。</li>
+<li>Redis不仅仅支持简单得key-value累心得数据，同时还提供list，set，zset，hash等数据结构得存储。</li>
+<li>Redis支持数据得备份，即master-slave模式得数据备份。</li>
+</ul>
+<h1>redis得数据类型</h1>
+<p>Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</p>
+<h1>redis得优势</h1>
+<ul>
+<li>性能高   redis读得速度是十一万次每秒    写得速度是八万一千次每秒</li>
+<li>具有丰富得数据类型  redis支持二进制案例得字符串  列表  哈希 sets 以及ordered sets（有序集合）等数据类型得操作</li>
+<li>具有原子性     要么成功执行要么完全不执行   单个操作是原子性得  多个也支持事物</li>
+<li>具有丰富得特性   redis 支持通知  或 key过期等特性</li>
+</ul>
+<h1>redis事物操作</h1>
+<ul>
+<li>multi  开启一个事物   执行别的命令</li>
+<li>exec  触发事物 …</li></ul>
+                        <a class="btn primary xsmall" href="/redisjian-jie.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/redisde-shi-yong.html">redis得使用</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-08-14T21:43:00+02:00">
+        <i class="icon-calendar"></i>周二 14 八月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><h1>redis的使用</h1>
+<ul>
+<li>
+<h3>redis对key（键）的使用</h3>
+</li>
+<li>
+<p>执行redis的命令：<strong>redis-cli</strong></p>
+</li>
+<li><strong>set key</strong>   创建键（key）</li>
+<li><strong>keys </strong>*   查看键有哪些  keys 查看所有符合条件的key值</li>
+<li><strong>get</strong>  key    查看键值的内容</li>
+<li><strong>del</strong> key   删除键</li>
+<li><strong>move</strong> key db   将当前数据库得key移动导给定得数据库db当中</li>
+<li><strong>randomkey</strong>   在数据库中随机返回一个key键值</li>
+<li><strong>rename</strong> key newkey   修改key得名称</li>
+<li>
+<p><strong>type</strong> key  返回key所储存得值得类型</p>
+</li>
+<li>
+<h3>对键值时间得操作</h3>
+</li>
+<li>
+<p><strong>setex</strong>  key time value   创建键值并添加过期时间 值</p>
+</li>
+<li><strong>explre</strong> key  给指定的键值设置过期时间</li>
+<li><strong>pexpireat</strong> key    设置过期时间  以毫秒为单位设施时间戳</li>
+<li><strong>persist</strong> key   移除key值得过期时间 …</li></ul>
+                        <a class="btn primary xsmall" href="/redisde-shi-yong.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/linuxxia-redisde-an-zhuang-he-shi-yong-fang-fa.html">Linux下redis得安装和使用方法</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-08-13T11:23:00+02:00">
+        <i class="icon-calendar"></i>周一 13 八月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><h1><a href="https://www.cnblogs.com/_popc/p/3684835.html">Linux下redis的安装</a></h1>
+<p><strong>第一部分：安装redis</strong> 
+希望将redis安装到此目录 </p>
+<div class="highlight"><pre><span></span><span class="o">`/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">redis</span><span class="o">`</span>
+</pre></div>
+
+
+<p>希望将安装包下载到此目录 </p>
+<div class="highlight"><pre><span></span><span class="o">`/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">src</span><span class="o">`</span>
+</pre></div>
+
+
+<p>那么安装过程指令如下： </p>
+<div class="highlight"><pre><span></span><span class="o">`</span><span class="err">$</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">redis</span> 
+<span class="o">``</span><span class="err">$</span> <span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">src</span>  
+<span class="o">``</span><span class="err">$</span> <span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">``//</span><span class="n">redis</span><span class="p">.</span><span class="n">googlecode</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">redis</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="mi">14</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> 
+<span class="o">``</span><span class="err">$</span> <span class="n">tar</span> <span class="n">xzf</span> <span class="n">redis</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="mi">14</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>  
+<span class="o">``</span><span class="err">$</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">redis</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="mi">14</span> <span class="n">redis</span> <span class="o">#</span><span class="err">建立一个链接</span> 
+<span class="o">``</span><span class="err">$</span> <span class="n">cd</span> <span class="n">redis …</span></pre></div>
+                        <a class="btn primary xsmall" href="/linuxxia-redisde-an-zhuang-he-shi-yong-fang-fa.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/linuxxia-scrapydde-bu-shu-yu-shi-yong.html">Linux下scrapyd得部署与使用</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-08-13T11:23:00+02:00">
+        <i class="icon-calendar"></i>周一 13 八月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><h1>linux配置scrapyd</h1>
+<ul>
+<li>进入linux中scrapyd得目录下</li>
+</ul>
+<p><code>cd /usr/local/python3/lib/python3.6/site-packages/scrapyd</code></p>
+<ul>
+<li>配置文件</li>
+</ul>
+<p>```
+        1 [scrapyd]
+        2 eggs_dir    = eggs
+        3 logs_dir    = logs
+        4 items_dir   =
+        5 jobs_to_keep = 5
+        6 dbs_dir     = dbs
+        7 max_proc    = 0
+        8 max_proc_per_cpu = 4
+        9 finished_to_keep = 100
+       10 poll_interval = 5.0
+       11 bind_address = 0.0.0.0
+       12 http_port   = 6800 …</p>
+                        <a class="btn primary xsmall" href="/linuxxia-scrapydde-bu-shu-yu-shi-yong.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/linuxxia-ruan-jian-de-an-zhuang-bing-shi-yong.html">Linux下软件得安装并使用</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-07-13T11:23:00+02:00">
+        <i class="icon-calendar"></i>周五 13 七月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><h1>安装anocanda</h1>
+<p>wget  https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh</p>
+<p>安装：</p>
+<p>bash Anaconda3-4.4.0-Linux-x86_64.sh</p>
+<p>​   (如果提示错误可执行：yum install -y nzip2)    </p>
+<p><strong>添加环境变量</strong></p>
+<div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="p">.</span><span class="n">bashrc</span>
+
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;/root/anaconda3/bin:$PATH&quot;</span>
+
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;/root/anaconda3/bin/python:$PATH&quot;</span>
+</pre></div>
+
+
+<p>保存后，使用</p>
+<div class="highlight"><pre><span></span><span class="k">source</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="p">.</span><span class="n">bashrc</span>
+</pre></div>
+
+
+<hr>
+<p>如果有python2与python3并存问题，可修改软连接处理：</p>
+<div class="highlight"><pre><span></span><span class="n">mv</span>  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">/</span><span class="n">usr …</span></pre></div>
+                        <a class="btn primary xsmall" href="/linuxxia-ruan-jian-de-an-zhuang-bing-shi-yong.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/nginxyu-uwsgiapachesan-zhe-de-qu-bie.html">Nginx与uWSGI，Apache三者得区别</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-04-25T23:00:00+02:00">
+        <i class="icon-calendar"></i>周三 25 四月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>Nginx</p>
+<p>Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个IMAP、POP3、SMTP代理服务器；Nginx可以作为一个HTTP服务器进行网站的发布处理，另外Nginx可以作为反向代理进行负载均衡的实现。</p>
+<p>应用场景
+通常情况下，我们在实际项目操作时，正向代理和反向代理很有可能会存在在一个应用场景中，正向代理代理客户端的请求去访问目标服务器，目标服务器是一个反向单利服务器，反向代理了多台真实的业务处理服务器。</p>
+<p>uWSGI</p>
+<p>WSGI 的官方定义是，the Python Web Server Gateway Interface。它是一个Gateway，也就是网关。网关的作用就是在协议之间进行转换。</p>
+<p>uWSGI是一个Web服务器，提高nginx效率。
+它实现了WSGI协议、uwsgi、http等协议。Nginx中HttpUwsgiModule的作用是与uWSGI服务器进行交换。</p>
+<p>要注意 WSGI / uwsgi / uWSGI 这三个概念的区分。</p>
+<p>WSGI是一种通信协议。
+uwsgi同WSGI一样是一种通信协议。
+而uWSGI是实现了uwsgi和WSGI两种协议的Web服务器。
+uwsgi协议是一个uWSGI服务器自有的协议，它用于定义传输信息的类型（type of information），每一个uwsgi packet前4byte为传输信息类型描述，它与WSGI相比是两样东西 …</p>
+                        <a class="btn primary xsmall" href="/nginxyu-uwsgiapachesan-zhe-de-qu-bie.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/sslyu-tlsde-qu-bie.html">SSL与TLS得区别</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-04-23T22:02:00+02:00">
+        <i class="icon-calendar"></i>周一 23 四月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><ul>
+<li>
+<h2>SSL,TLS</h2>
+</li>
+<li>
+<h5>SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。该协议由两层组成：SSL记录协议和SSL握手协议。</h5>
+</li>
+<li>
+<h5>SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。SSL协议可分为两层： SSL记录协议（SSL Record Protocol）：它建立在可靠的传输协议（如TCP）之上，为高层协议提供数据封装、压缩、加密等基本功能的支持。 SSL握手协议（SSL HandshakeProtocol）：它建立在SSL记录协议之上，用于在实际的数据传输开始前，通讯双方进行身份认证、协商加密算法、交换加密密钥等。</h5>
+</li>
+<li>
+<h3>TLS</h3>
+</li>
+<li>
+<h5>TLS：(Transport LayerSecurity，传输层安全协议)，用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。</h5>
+</li>
+<li>
+<h5>TLS记录协议用于封装各种高层协议。作为这种封装协议之一的握手协议允许服务器与客户机在应用程序协议传输和接收其第一个数据字节前彼此之间相互认证，协商加密算法和加密密钥。</h5>
+</li>
+<li>
+<h5>TLS(Transport Layer …</h5></li></ul>
+                        <a class="btn primary xsmall" href="/sslyu-tlsde-qu-bie.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/djangozhong-shu-ju-ku-lei-xing.html">django中数据库类型</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-03-22T22:02:00+01:00">
+        <i class="icon-calendar"></i>周四 22 三月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>数据库类型：
+AutoField       ：自动增长的主键id，通常不用指定，不指定时Django会自动创建属性名为id的自动增长属性</p>
+<p>BooleanField：布尔字段，值为True或False。
+NullBooleanField    ：布尔字段，支持Null、True、False三种值。
+    （default=True设置默认值）</p>
+<p>CharField       ：字符串。
+URLField        ：存储URL的字段。  <br>
+EmailField      ：Email字段，并会检查是否为合法邮箱地址。
+SlugField       ：存储只包含字母、数字、下划线的字符串。
+TextField       ：大文本字段，一般超过4000个字符时使用。
+    (max_length=字符长度)CharField的必须参数其他为可选参数</p>
+<p>IntegerField    ：整数。
+DecimalField    ：十进制浮点数。
+FloatField      ：浮点数。
+    (max_digits=总位数, decimal_places=小数位数)</p>
+<p>DateField       ：日期。
+TimeField       ：时间。
+DateTimeField   ：日期时间。
+    （[auto_now=False …</p>
+                        <a class="btn primary xsmall" href="/djangozhong-shu-ju-ku-lei-xing.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/djangozhong-sqlde-ji-ben-cao-zuo.html">django中sql得基本操作</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2018-03-13T22:20:00+01:00">
+        <i class="icon-calendar"></i>周二 13 三月 2018
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>在Django中操作数据库的方式有两种，第一种就是使用ORM模型来操作，第二种就是使用原生sql语句操作。</p>
+<p>命令行管理工具下输入命令进行测试：
+python .\manage.py shell        ：打开数据库测试的shell工具
+from 子应用.models import *        ：引入models下的所有类
+dir()                   ：查询结果集
+exit()                  ：退出
+cls                 ：清屏</p>
+<p>变量 = 类名.objects.create(字段1='值') ：创建数据   （以变量接收内存中的实例）
+变量.save()               ：保存到数据库 （操作实例完成后必须使用.save()作用到数据库）
+    【在我们显示调用save()之前，django不会访问数据库，实例数据只存在于内存中】</p>
+<p>Manager(管理器)是每一个模型类所具有的，默认名为objects，通过模型类调用orm数据接口，对数据表进行操作。</p>
+<p>增：
+create()方法创建数据：
+变量 = 类名.objects …</p>
+                        <a class="btn primary xsmall" href="/djangozhong-sqlde-ji-ben-cao-zuo.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="/sessionyu-cookiede-qu-bie.html">session与cookie得区别</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2017-11-20T22:20:00+01:00">
+        <i class="icon-calendar"></i>周一 20 十一月 2017
+</abbr>
+<span class="label">By</span>
+<a href="/author/fu-lu-shui.html"><i class="icon-user"></i>浮绿水</a>
+<span class="label">Category</span>
+<a href="/category/ji-zhu.html"><i class="icon-folder-open"></i>技术</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/pelican.html"><i class="icon-tag"></i>pelican</a>
+	<a href="/tag/publishing.html"><i class="icon-tag"></i>publishing</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>HTTP协议的特性：</p>
+<p>每一次来自于用户浏览器的请求（request）都是无状态的、独立的。通俗地说，就是无法保存用户状态，后台服务器根本就不知道当前请求和以前及以后请求是否来自同一用户。</p>
+<p>为了保持连接状态，网站会在用户的浏览器通过Cookie可以保存一些诸如用户名、浏览记录、登录和注销等各种数据。但是这种方式非常不安全，因为Cookie保存在用户的机器上，如果Cookie被伪造、篡改或删除，就会造成极大的安全威胁，因此，通常将Cookie用来保存一些不重要的内容，实际的用户数据和状态还是以Session会话的方式保存在服务器端。</p>
+<p>cookie：在本地客户端存储数据，可以发送给服务端</p>
+<p>Cookie：指某些网站为了辨别用户身份、进行会话跟踪而储存在用户本地的数据（通常经过加密）。
+Cookie是由服务器端生成，发送给客户端浏览器，浏览器会将Cookie的key/value保存，下次请求同一网站时就发送该Cookie给服务器（前提是浏览器设置为启用cookie）。
+Cookie可以长久的在客户端保存，如购物车</p>
+<p>session ：会话~~在服务端存储数据，安全，存储数据多，但有有效期</p>
+<p>Session：对于敏感重要的信息，建议要存储在服务器端，不能存储在浏览器中，如用户名、余额、等级、验证码等信息
+Django的session默认保存14天 …</p>
+                        <a class="btn primary xsmall" href="/sessionyu-cookiede-qu-bie.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+
+        <div class="pagination">
+        <ul>
+                        <li class="prev"><a href="/tag/publishing.html">&larr; Previous</a></li>
+                        <li class=""><a href="/tag/publishing.html">1</a></li>
+                        <li class="active"><a href="/tag/publishing2.html">2</a></li>
+                        <li class="next disabled"><a href="#">&rarr; Next</a></li>
+        </ul>
+        </div>
+
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+    <li><a href="#"><i class="icon-external-link"></i>You can modify those links in your config file</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+<li><a href="/" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
+    <li><a href="#"><i class="icon-You can add links in your config file-sign icon-large"></i>You can add links in your config file</a></li>
+    <li><a href="#"><i class="icon-Another social link-sign icon-large"></i>Another social link</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/ji-zhu.html">
+    <i class="icon-folder-open icon-large"></i>技术
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
